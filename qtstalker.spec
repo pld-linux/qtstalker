@@ -2,7 +2,7 @@ Summary:	Technical stock analysis charting app based on the Qt toolkit
 Summary(pl):	Program do analiz technicznych gie³dy oparty na bibliotece Qt
 Name:		qtstalker
 Version:	0.29
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/qtstalker/%{name}-%{version}.tar.gz
@@ -47,7 +47,7 @@ export QTDIR="%{_prefix}"
 export INSTALL_ROOT=$RPM_BUILD_ROOT
 
 for f in `find . -name \*.pro`; do
-	sed -i -e 's/^(QMAKE_CXXFLAGS \+= )-Os/$1%{rpmcflags}/' $f
+	sed -i -e 's/^\(QMAKE_CXXFLAGS += -ffast-math \)-Os/\1%{rpmcflags}/' $f
 done
 
 sed -i -e 's/qtstalker\/html/qtstalker-%{version}/' lib/Config.cpp
