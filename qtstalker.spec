@@ -1,12 +1,12 @@
-Summary:	Technical analysis charting app based on the Qt toolkit
-Summary(pl):	Program do analiz technicznych oparty na bibliotece QT
+Summary:	Technical stock analysis charting app based on the Qt toolkit
+Summary(pl):	Program do analiz technicznych gie³dy oparty na bibliotece QT
 Name:		qtstalker
-Version:	0.20
+Version:	0.25
 Release:	1
 License:	GPL
-Group:		Applications/Engineering
+Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/qtstalker/%{name}-%{version}.tar.gz
-# Source0-md5:	902330c1addb856295fbb4569c278c20
+# Source0-md5:	ddccb70549a264bacea1573b300f3986
 Source1:	Qtstalker.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-db4.patch
@@ -43,45 +43,43 @@ przeno¶no¶æ i zarz±dzanie zasobami.
 
 %build
 export QMAKESPEC="%{_datadir}/qt/mkspecs/linux-g++/"
-export QTDIR="/usr"
+export QTDIR="%{_prefix}"
+export INSTALL_ROOT=$RPM_BUILD_ROOT
 
-%{__perl} -pi -e 's/^(QMAKE_CXXFLAGS \+= )-Os/$1%{rpmcflags}/' Qtstalker.pro
-qmake -o Makefile Qtstalker.pro
+%{__perl} -pi -e 's/^(QMAKE_CXXFLAGS \+= )-Os/$1%{rpmcflags}/' lib/*.pro
+%{__perl} -pi -e 's/^(QMAKE_CXXFLAGS \+= )-Os/$1%{rpmcflags}/' plug*/*/*/*.pro
+%{__perl} -pi -e 's/^(QMAKE_CXXFLAGS \+= )-Os/$1%{rpmcflags}/' qtstalker.pro
+%{__perl} -pi -e 's/^(QMAKE_CXXFLAGS \+= )-Os/$1%{rpmcflags}/' src/*.pro
+
+qmake -o Makefile qtstalker.pro
 
 %{__make}
 
-cd plugins/indicator
-%{__perl} -pi -e 's/^(QMAKE_CXXFLAGS \+= )-Os/$1%{rpmcflags}/' *.pro
-./compile
-
-cd ../quote
-%{__perl} -pi -e 's/^(QMAKE_CXXFLAGS \+= )-Os/$1%{rpmcflags}/' *.pro
-./compile
-cd ../..
-
-cp -fpr plainitem.xpm qtstalker.xpm
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir}/%{name}/plugins/{indicator,quote}} \
-	$RPM_BUILD_ROOT{%{_applnkdir}/Office/Misc,%{_pixmapsdir}/hicolor/16x16/apps}
 
-install qtstalker		$RPM_BUILD_ROOT%{_bindir}
-install plugins/indicator/*.so	$RPM_BUILD_ROOT%{_libdir}/%{name}/plugins/indicator
-install plugins/quote/*.so	$RPM_BUILD_ROOT%{_libdir}/%{name}/plugins/quote
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir}/%{name}/{indicator,quote}}
+install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 
-install qtstalker.xpm $RPM_BUILD_ROOT%{_pixmapsdir}/hicolor/16x16/apps
+install lib/libqtstalker.so.*.*.* $RPM_BUILD_ROOT%{_libdir}
+install plugins/indicator/*/*.so $RPM_BUILD_ROOT%{_libdir}/%{name}/indicator
+install plugins/quote/*/*.so $RPM_BUILD_ROOT%{_libdir}/%{name}/quote
+install src/qtstalker $RPM_BUILD_ROOT%{_bindir}
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Office/Misc
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post	-p /sbin/ldconfig
+%postun -p /sbin/ldconfig
+
 %files
 %defattr(644,root,root,755)
 %doc docs/{AUTHORS,BUGS,CHANGELOG,TODO,*.html,*.png}
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/%{name}
-%{_applnkdir}/Office/Misc/*
-%{_pixmapsdir}/hicolor/16x16/apps/*
+%attr(755,root,root) %{_libdir}/*
+%{_desktopdir}/*
+%{_pixmapsdir}/*
