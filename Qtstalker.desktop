@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Qtstalker
+Comment=Qtstalker is a basic technical analysis charting app based on the Qt toolkit
+Comment[pl]=Qtstalker to program do przeprowadzania analiz technicznych bazujący na bibliotece QT
+TryExec=qtstalker
+Exec=qtstalker
+Icon=qtstalker.png
+Terminal=0
+Type=Application
+# vi: encoding=utf-8
