@@ -1,0 +1,48 @@
+--- qtstalker/ChartDb.cpp.orig	Wed May 14 17:15:18 2003
++++ qtstalker/ChartDb.cpp	Mon Jul 28 15:11:58 2003
+@@ -43,9 +43,20 @@
+ 
+ int ChartDb::openChart (QString path)
+ {
++#if (DB_VERSION_MAJOR >= 3)
++  if (db_create(&db, NULL, 0) != 0)
++    return TRUE;
++#  if (DB_VERSION_MAJOR == 4) && (DB_VERSION_MINOR >= 1)
++  if (db->open(db, NULL, (char *) path.latin1(), NULL, DB_BTREE, DB_CREATE, 0664) != 0)
++    return TRUE;
++#  else
++  if (db->open(db, (char *) path.latin1(), NULL, DB_BTREE, DB_CREATE, 0664) != 0)
++    return TRUE;
++#  endif
++#else
+   if (db_open((char *) path.latin1(), DB_BTREE, DB_CREATE, 0664, NULL, NULL, &db) != 0)
+     return TRUE;
+-  else
++#endif
+   {
+     loadDetails();
+     return FALSE;
+--- qtstalker/plugins/quote/ChartDb.cpp.orig	Wed May 14 17:15:19 2003
++++ qtstalker/plugins/quote/ChartDb.cpp	Mon Jul 28 16:00:03 2003
+@@ -43,9 +43,20 @@
+ 
+ int ChartDb::openChart (QString path)
+ {
++#if (DB_VERSION_MAJOR >= 3)
++  if (db_create(&db, NULL, 0) != 0)
++    return TRUE;
++#  if (DB_VERSION_MAJOR == 4) && (DB_VERSION_MINOR >= 1)
++  if (db->open(db, NULL, (char *) path.latin1(), NULL, DB_BTREE, DB_CREATE, 0664) != 0)
++    return TRUE;
++#  else
++  if (db->open(db, (char *) path.latin1(), NULL, DB_BTREE, DB_CREATE, 0664) != 0)
++    return TRUE;
++#  endif
++#else
+   if (db_open((char *) path.latin1(), DB_BTREE, DB_CREATE, 0664, NULL, NULL, &db) != 0)
+     return TRUE;
+-  else
++#endif
+   {
+     loadDetails();
+     return FALSE;
