@@ -8,6 +8,7 @@ Release:	2
 License:	GPL
 Group:		Applications/Engineering
 Source0:	http://dl.sourceforge.net/qtstalker/%{name}-%{version}.tar.gz
+# Source0-md5:	382f1a6cdea8f588314f4e6d477084ac
 Source1:	Qtstalker.desktop
 Source2:	%{name}.png
 URL:		http://qtstalker.sourceforge.net
