@@ -123,7 +123,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc docs/{AUTHORS,BUGS,CHANGELOG,COPYING,INSTALL,README,TODO}
+%doc docs/{AUTHORS,BUGS,CHANGELOG,README,TODO}
 %doc $RPM_BUILD_ROOT/tmp/HTML
 %attr(755,root,root) %{_bindir}/*
 %{_libdir}/%{name}
