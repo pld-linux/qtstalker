@@ -7,7 +7,6 @@ License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/qtstalker/%{name}-%{version}.tar.gz
 # Source0-md5:	d96c49428aabd0bdea44aae25f964dea
-# Source0-size:	1502923
 Source1:	Qtstalker.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-db4.patch
