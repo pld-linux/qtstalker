@@ -1,23 +1,21 @@
+# TODO:
+# - use system db?
 Summary:	Technical analysis charting app based on the Qt toolkit
-Summary(pl):	Program do analiz technicznych bazuj±cy na bibliotece QT
+Summary(pl):	Program do analiz technicznych oparty na bibliotece QT
 Name:		qtstalker
 Version:	0.15
 Release:	2
 License:	GPL
 Group:		Applications/Engineering
-Source0:	http://dl.sourceforge.net/sourceforge/qtstalker/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/qtstalker/%{name}-%{version}.tar.gz
 Source1:	Qtstalker.desktop
 Source2:	%{name}.png
 URL:		http://qtstalker.sourceforge.net
-BuildRequires:	qt-devel >= 2.2
-BuildRequires:	glibc
-BuildRequires:	libstdc++
-BuildRequires:	qt
 BuildRequires:	XFree86-libs
-BuildRequires:	glibc
+BuildRequires:	qt-devel >= 2.2
+BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix			/usr/X11R6
 %define		_noautocompressdoc 	*.xpm
 
 %description
@@ -111,7 +109,7 @@ install qtstalker		$RPM_BUILD_ROOT%{_bindir}
 install plugins/indicator/*.so	$RPM_BUILD_ROOT%{_libdir}/%{name}/plugins/indicator
 install plugins/quote/*.so	$RPM_BUILD_ROOT%{_libdir}/%{name}/plugins/quote
 
-install qtstalker.xpm $RPM_BUILD_ROOT/%{_pixmapsdir}/hicolor/16x16/apps
+install qtstalker.xpm $RPM_BUILD_ROOT%{_pixmapsdir}/hicolor/16x16/apps
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Office/Misc
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
