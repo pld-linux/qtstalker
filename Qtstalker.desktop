@@ -7,5 +7,6 @@ Exec=qtstalker
 Icon=qtstalker.png
 Terminal=false
 Type=Application
+Categories=Office;Finance;
 Encoding=UTF-8
 # vi: encoding=utf-8
