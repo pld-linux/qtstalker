@@ -11,7 +11,6 @@ Source1:	Qtstalker.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-db4.patch
 URL:		http://qtstalker.sourceforge.net/
-BuildRequires:	XFree86-libs
 BuildRequires:	db-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	qt-devel >= 3.0
