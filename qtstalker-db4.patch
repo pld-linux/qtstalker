@@ -1,24 +1,28 @@
---- qtstalker-0.26/lib/ChartDb.cpp.orig	2004-06-10 17:43:42.000000000 +0200
-+++ qtstalker-0.26/lib/ChartDb.cpp	2004-06-10 17:46:40.000000000 +0200
-@@ -42,9 +42,20 @@
+--- qtstalker-0.29/lib/ChartDb.cpp.orig	2005-02-11 21:45:24.000000000 +0100
++++ qtstalker-0.29/lib/ChartDb.cpp	2005-02-11 21:55:43.000000000 +0100
+@@ -251,13 +251,24 @@
  
- int ChartDb::openChart (QString path)
- {
+ // new db open call
+ //  if (db->open(db, NULL, (char *) d.latin1(), NULL, DB_BTREE, DB_CREATE, 0664) != 0)
+-    
++
 +#if (DB_VERSION_MAJOR >= 3)
-+	  if (db_create(&db, NULL, 0) != 0)
-+	    return TRUE;
-+#  if (DB_VERSION_MAJOR == 4) && (DB_VERSION_MINOR >= 1)
-+	  if (db->open(db, NULL, (char *) path.latin1(), NULL, DB_BTREE, DB_CREATE, 0664) != 0)
-+	    return TRUE;
-+#  else
-+	  if (db->open(db, (char *) path.latin1(), NULL, DB_BTREE, DB_CREATE, 0664) != 0)
-+	    return TRUE;
-+#  endif
-+	#else
-   if (db_open((char *) path.latin1(), DB_BTREE, DB_CREATE, 0664, NULL, NULL, &db) != 0)
++	if (db_create(&db, NULL, 0) != 0)
++	      return TRUE;
++# if (DB_VERSION_MAJOR == 4) && (DB_VERSION_MINOR >= 1)
++	if (db->open(db, NULL, (char *) d.latin1(), NULL, DB_BTREE, DB_CREATE, 0664) != 0)
++	return TRUE;
++# else
++	if (db->open(db, (char *) d.latin1(), NULL, DB_BTREE, DB_CREATE, 0664) != 0)	return TRUE;
++# endif
++#else	
+   if (db_open((char *) d.latin1(), DB_BTREE, DB_CREATE, 0664, NULL, NULL, &db) != 0)
+   {
+     qDebug("ChartDb::open: can't open db");
      return TRUE;
--  else
+   }
+   
 +#endif
-     return FALSE;
+   path = d;
+   return FALSE;
  }
- 
