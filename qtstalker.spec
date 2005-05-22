@@ -2,12 +2,13 @@ Summary:	Technical stock analysis charting app based on the Qt toolkit
 Summary(pl):	Program do analiz technicznych gie³dy oparty na bibliotece Qt
 Name:		qtstalker
 Version:	0.31
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/qtstalker/%{name}-31.tar.gz
 # Source0-md5:	3696335f28afb3a749048fce83887d49
 Source1:	Qtstalker.desktop
+Source2:	%{name}.png
 URL:		http://qtstalker.sourceforge.net/
 BuildRequires:	db-devel >= 4.2	
 BuildRequires:	libstdc++-devel
@@ -68,10 +69,10 @@ install plugins/db/*/*.so $RPM_BUILD_ROOT%{_libdir}/%{name}/db
 install plugins/indicator/*/*.so $RPM_BUILD_ROOT%{_libdir}/%{name}/indicator
 install plugins/quote/*/*.so $RPM_BUILD_ROOT%{_libdir}/%{name}/quote
 install src/qtstalker $RPM_BUILD_ROOT%{_bindir}
-install pics/qtstalker.xpm $RPM_BUILD_ROOT%{_pixmapsdir}
 install i18n/*qm $RPM_BUILD_ROOT%{_datadir}/%{name}/i18n
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
+install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
