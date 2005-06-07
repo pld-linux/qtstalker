@@ -1,12 +1,12 @@
 Summary:	Technical stock analysis charting app based on the Qt toolkit
 Summary(pl):	Program do analiz technicznych gie³dy oparty na bibliotece Qt
 Name:		qtstalker
-Version:	0.31
-Release:	2
+Version:	0.32
+Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://dl.sourceforge.net/qtstalker/%{name}-31.tar.gz
-# Source0-md5:	3696335f28afb3a749048fce83887d49
+Source0:	http://dl.sourceforge.net/qtstalker/%{name}-%{version}.tar.gz
+# Source0-md5:	576907bd6299fe0cd9078334e4e5f7f3
 Source1:	Qtstalker.desktop
 Source2:	%{name}.png
 URL:		http://qtstalker.sourceforge.net/
