@@ -10,7 +10,7 @@ Source0:	http://dl.sourceforge.net/qtstalker/%{name}-%{version}.tar.gz
 Source1:	Qtstalker.desktop
 Source2:	%{name}.png
 URL:		http://qtstalker.sourceforge.net/
-BuildRequires:	db-devel >= 4.2	
+BuildRequires:	db-devel >= 4.2
 BuildRequires:	libstdc++-devel
 BuildRequires:	qt-devel >= 3.0
 BuildRequires:	sed >= 4.0
