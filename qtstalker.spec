@@ -1,5 +1,5 @@
 Summary:	Technical stock analysis charting app based on the Qt toolkit
-Summary(pl):	Program do analiz technicznych gie≥dy oparty na bibliotece Qt
+Summary(pl.UTF-8):   Program do analiz technicznych gie≈Çdy oparty na bibliotece Qt
 Name:		qtstalker
 Version:	0.32
 Release:	3
@@ -26,16 +26,16 @@ with those, then you should be able to muddle along with Qtstalker.
 The project has kept to a lean and simple design philosophy in order
 to maximize speed, portability and resource usage.
 
-%description -l pl
+%description -l pl.UTF-8
 Qtstalker jest prostym programem do przeprowadzania analiz
-technicznych, posiadaj±cym wiele ciekawych rozwi±zaÒ. Jest
-porÛwnywalny do podobnych produktÛw komercyjnych jak Metastock,
-Superchartz, Tradestation (...moøe ktÛrego∂ dnia) itd. Je∂li jeste∂
-zaznajomiony z nimi, to powiniene∂ sobie takøe poradziÊ z Qtstalkerem.
+technicznych, posiadajƒÖcym wiele ciekawych rozwiƒÖza≈Ñ. Jest
+por√≥wnywalny do podobnych produkt√≥w komercyjnych jak Metastock,
+Superchartz, Tradestation (...mo≈ºe kt√≥rego≈õ dnia) itd. Je≈õli jeste≈õ
+zaznajomiony z nimi, to powiniene≈õ sobie tak≈ºe poradziƒá z Qtstalkerem.
 
-Projekt jest utrzymywany z za≥oøeniem zachowania prostoty i
-przejrzysto∂ci interfejsu obs≥ugi, aby zmaksymalizowaÊ szybko∂Ê,
-przeno∂no∂Ê i zarz±dzanie zasobami.
+Projekt jest utrzymywany z za≈Ço≈ºeniem zachowania prostoty i
+przejrzysto≈õci interfejsu obs≈Çugi, aby zmaksymalizowaƒá szybko≈õƒá,
+przeno≈õno≈õƒá i zarzƒÖdzanie zasobami.
 
 %prep
 %setup -q -n %{name}
