@@ -1,5 +1,5 @@
 Summary:	Technical stock analysis charting app based on the Qt toolkit
-Summary(pl.UTF-8):   Program do analiz technicznych giełdy oparty na bibliotece Qt
+Summary(pl.UTF-8):	Program do analiz technicznych giełdy oparty na bibliotece Qt
 Name:		qtstalker
 Version:	0.32
 Release:	3
