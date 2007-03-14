@@ -1,12 +1,12 @@
 Summary:	Technical stock analysis charting app based on the Qt toolkit
 Summary(pl.UTF-8):	Program do analiz technicznych giełdy oparty na bibliotece Qt
 Name:		qtstalker
-Version:	0.32
-Release:	3
+Version:	0.33
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/qtstalker/%{name}-%{version}.tar.gz
-# Source0-md5:	576907bd6299fe0cd9078334e4e5f7f3
+# Source0-md5:	03a8a0fd3fe6e88eac94701cc897e703
 Source1:	Qtstalker.desktop
 Source2:	%{name}.png
 URL:		http://qtstalker.sourceforge.net/
@@ -64,13 +64,10 @@ install -d $RPM_BUILD_ROOT%{_libdir}/%{name}/{chart,co,db,indicator,quote}
 install -d $RPM_BUILD_ROOT%{_datadir}/%{name}/i18n
 
 install lib/libqtstalker.so.*.*.* $RPM_BUILD_ROOT%{_libdir}
-install plugins/chart/*/*.so $RPM_BUILD_ROOT%{_libdir}/%{name}/chart
-install plugins/co/*/*.so $RPM_BUILD_ROOT%{_libdir}/%{name}/co
-install plugins/db/*/*.so $RPM_BUILD_ROOT%{_libdir}/%{name}/db
 install plugins/indicator/*/*.so $RPM_BUILD_ROOT%{_libdir}/%{name}/indicator
 install plugins/quote/*/*.so $RPM_BUILD_ROOT%{_libdir}/%{name}/quote
 install src/qtstalker $RPM_BUILD_ROOT%{_bindir}
-install i18n/*qm $RPM_BUILD_ROOT%{_datadir}/%{name}/i18n
+#install i18n/*qm $RPM_BUILD_ROOT%{_datadir}/%{name}/i18n
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
@@ -88,6 +85,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/*
 %dir %{_datadir}/%{name}
 %dir %{_datadir}/%{name}/i18n
-%{_datadir}/%{name}/i18n/*
+#%{_datadir}/%{name}/i18n/*
 %{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
