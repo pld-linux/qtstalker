@@ -13,7 +13,7 @@ URL:		http://qtstalker.sourceforge.net/
 BuildRequires:	db-devel >= 4.2
 BuildRequires:	libstdc++-devel
 BuildRequires:	qmake
-BuildRequires:	qt-devel >= 3.0
+BuildRequires:	qt-devel >= 1:3.0
 BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
