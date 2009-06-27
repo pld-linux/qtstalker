@@ -43,7 +43,7 @@ przenośność i zarządzanie zasobami.
 %setup -q
 %patch0 -p1
 
-sed -i -e 's|/usr/local/|/usr/|' \
+sed -i -e 's|/usr/local/|/usr/|' -e 's|/usr/lib/|%{_libdir}/|' \
 	{plugins/quote/{Yahoo/Yahoo,NYBOT/NYBOT,CSV/CSV,CME/CME},docs/docs,src/src,lib/lib}.pro \
 	{src/Qtstalker,lib/{Config,RcFile}}.cpp
 
