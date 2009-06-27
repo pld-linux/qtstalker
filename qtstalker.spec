@@ -61,7 +61,7 @@ export INSTALL_ROOT=$RPM_BUILD_ROOT
 
 qmake -o Makefile qtstalker.pro
 
-%{__make}
+%{__make} -j1
 
 %install
 rm -rf $RPM_BUILD_ROOT
