@@ -65,7 +65,7 @@ qmake -o Makefile qtstalker.pro
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
+install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir},%{_libdir}}
 
 sed -i -e 's|/usr/lib/|%{_libdir}/|' lib/Makefile
 export QTDIR="%{_prefix}"
