@@ -1,0 +1,22 @@
+diff -purN qtstalker-0.36.orig/lib/UpgradeMessage.cpp qtstalker-0.36/lib/UpgradeMessage.cpp
+--- qtstalker-0.36.orig/lib/UpgradeMessage.cpp	2007-06-05 07:51:18.000000000 +0200
++++ qtstalker-0.36/lib/UpgradeMessage.cpp	2009-06-27 16:00:09.000000000 +0200
+@@ -23,6 +23,7 @@
+ #include "Config.h"
+ #include "DbPlugin.h"
+ #include "Traverse.h"
++#include <cstdlib>
+ #include <qlayout.h>
+ #include <qwidget.h>
+ #include <qstring.h>
+diff -purN qtstalker-0.36.orig/src/IndicatorPage.cpp qtstalker-0.36/src/IndicatorPage.cpp
+--- qtstalker-0.36.orig/src/IndicatorPage.cpp	2009-06-27 16:04:19.000000000 +0200
++++ qtstalker-0.36/src/IndicatorPage.cpp	2009-06-27 16:03:17.000000000 +0200
+@@ -36,6 +36,7 @@
+ #include "../pics/newchart.xpm"
+ #include "../pics/move.xpm"
+ #include "../pics/dirclosed.xpm"
++#include <cstdlib>
+ #include <qcursor.h>
+ #include <qaccel.h>
+ #include <qfile.h>
